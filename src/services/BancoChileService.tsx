@@ -1,7 +1,7 @@
 import {Userdata} from "../models/Userdata";
 
 export class BancoChileService {
-    API_URL = 'http://api.moonshots.cl/portability-kit/banco-chile';
+    API_URL = 'https://api.moonshots.cl/portability-kit/banco-chile';
     private user: Userdata;
 
     constructor(userdata: Userdata) {

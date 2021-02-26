@@ -8,7 +8,7 @@ import CookiesPolicies from "./components/cookies-policies/CookiesPolicies";
 
 function App() {
     return (
-        <div className="container is-fluid">
+        <div className="container">
             <Navbar></Navbar>
             <Landing></Landing>
             <Footer></Footer>
