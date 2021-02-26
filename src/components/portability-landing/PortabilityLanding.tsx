@@ -6,6 +6,10 @@ import LoginModal from "../login-modal/LoginModal";
 const PortabilityLanding = () => {
     let [showLogin, setShowLogin] = useState(false)
 
+    const handleShowLogin = () => {
+        setShowLogin(!showLogin)
+    }
+
     return (
         <>
             <section className="section portability-landing">
@@ -22,7 +26,7 @@ const PortabilityLanding = () => {
                         </div>
                         <div className="column is-full is-centered">
                             <div className="buttons is-centered">
-                                <button className="button is-fullwidth is-primary" onClick={()=>setShowLogin(!showLogin)}>Portate Aquí</button>
+                                <button className="button is-fullwidth is-primary" onClick={()=>handleShowLogin()}>Portate Aquí</button>
                             </div>
                         </div>
                     </div>
