@@ -1,11 +1,8 @@
 import * as React from 'react';
 import './Navbar.scss';
-import LoginModal from "../../components/login-modal/LoginModal";
-import { useState } from "react";
 import { sBankIcon } from "../../assets";
 
 const Navbar = () => {
-    let [showLogin, setShowLogin] = useState(false)
 
     return (
         <>
@@ -27,7 +24,6 @@ const Navbar = () => {
                 </div>
             </nav>
             <div className="navbar-divider"></div>
-            <LoginModal show={showLogin}></LoginModal>
         </>
     );
 }

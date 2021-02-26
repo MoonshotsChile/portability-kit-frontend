@@ -28,6 +28,7 @@ $family-monospace: 'Hind', sans-serif;
 $grey-dark: $brown;
 $grey-light: $beige-light;
 $primary: $purple;
+$button-color: $purple;
 $link: $pink;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
@@ -48,6 +49,9 @@ body {
   .sbank {
     font-family: 'Sen', sans-serif;
     font-size: 2em;
+  }
+  p {
+    color: $black;
   }
 }
 
