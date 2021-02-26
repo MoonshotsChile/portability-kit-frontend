@@ -7,7 +7,6 @@ import PortabilityLanding from "../../components/portability-landing/Portability
 const Landing = () => {
     return (
         <>
-            <PortabilityStepper></PortabilityStepper>
             <PortabilityLanding></PortabilityLanding>
             <PortabilityRecipients></PortabilityRecipients>
         </>

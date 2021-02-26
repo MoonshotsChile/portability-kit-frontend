@@ -4,11 +4,11 @@ import './LoginModal.scss';
 import { BancoChileService } from "../../services/BancoChileService";
 
 interface Props {
-    show?: Boolean
+    show: Boolean
 }
 
-const LoginModal = (props?: Props) => {
-    let [show, setShow] = useState(false)
+const LoginModal = (props: Props) => {
+    let [show, setShow] = useState(props.show)
 
     let [userdata, setUserdata] = useState({
         username: "",
@@ -27,8 +27,12 @@ const LoginModal = (props?: Props) => {
     })
 
     useEffect(() => {
-        setShow(!!props?.show)
+        handleShow()
     })
+
+    const handleShow = () => {
+        setShow(show && props.show);
+    }
 
     const handleChange = (e: { target: { id: string; value: string; } }) => {
         const {id, value} = e.target
@@ -97,8 +101,8 @@ const LoginModal = (props?: Props) => {
             <div className="modal-background"/>
             <div className="modal-card">
                 <header className="modal-card-head">
-                    <p className="modal-card-title">Login</p>
-                    <button className="delete" aria-label="close" onClick={() => setShow(false)}/>
+                    <h6 className="modal-card-title">Login</h6>
+                    <button className="delete" aria-label="close" onClick={handleShow}/>
                 </header>
                 <section className="modal-card-body">
                     <form>
