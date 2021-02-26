@@ -1,10 +1,14 @@
 import * as React from 'react'
-import {useState} from 'react'
+import { useEffect, useState } from 'react'
 import './LoginModal.scss';
-import {BancoChileService} from "../../services/BancoChileService";
+import { BancoChileService } from "../../services/BancoChileService";
 
-const LoginModal = () => {
-    let [show, setShow] = useState(true)
+interface Props {
+    show?: Boolean
+}
+
+const LoginModal = (props?: Props) => {
+    let [show, setShow] = useState(false)
 
     let [userdata, setUserdata] = useState({
         username: "",
@@ -20,6 +24,10 @@ const LoginModal = () => {
         profile: {},
         recipients: {},
         transactions: {}
+    })
+
+    useEffect(() => {
+        setShow(!!props?.show)
     })
 
     const handleChange = (e: { target: { id: string; value: string; } }) => {
