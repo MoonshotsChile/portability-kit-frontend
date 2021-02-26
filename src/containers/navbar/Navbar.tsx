@@ -23,7 +23,7 @@ const Navbar = () => {
                     </div>
                 </div>
             </nav>
-            <div className="navbar-divider"></div>
+            <div className="navbar-divider"/>
         </>
     );
 }

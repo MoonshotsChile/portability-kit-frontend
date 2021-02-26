@@ -26,12 +26,14 @@ const LoginModal = (props: Props) => {
         transactions: {}
     })
 
+
     useEffect(() => {
         handleShow()
-    })
+    }, [props.show])
 
-    const handleShow = () => {
-        setShow(show && props.show);
+    const handleShow = (_show?: boolean) => {
+        console.log(_show, props);
+        _show !== undefined ? setShow(_show) : setShow(props.show);
     }
 
     const handleChange = (e: { target: { id: string; value: string; } }) => {
@@ -42,7 +44,7 @@ const LoginModal = (props: Props) => {
         }))
     }
 
-    function fetchBankingData() {
+    const fetchBankingData = () => {
         const service = new BancoChileService(userdata)
         setDisabledSubmit(true)
 
@@ -102,7 +104,7 @@ const LoginModal = (props: Props) => {
             <div className="modal-card">
                 <header className="modal-card-head">
                     <h6 className="modal-card-title">Login</h6>
-                    <button className="delete" aria-label="close" onClick={handleShow}/>
+                    <button className="delete" aria-label="close" onClick={() => handleShow(false)}/>
                 </header>
                 <section className="modal-card-body">
                     <form>

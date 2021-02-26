@@ -13,18 +13,16 @@ const PortabilityLanding = () => {
                     <div className="column is-half is-full-tablet is-full-mobile">
                         <div className="column is-full">
                             <h2 className="title mb-6">Comencemos con tu mudanza financiera</h2>
-                            <div className="column">
-                                <p>En <strong>SBank</strong> te ofrecemos toda una variedad de planes
-                                    de
-                                    Cuenta Corriente que se ajustan a tus necesidades y a tus
-                                    elecciones. Tu eliges por qué pagar y qué beneficios disfrutar
+                            <p>En <strong>SBank</strong> te ofrecemos toda una variedad de planes
+                                de
+                                Cuenta Corriente que se ajustan a tus necesidades y a tus
+                                elecciones. Tu eliges por qué pagar y qué beneficios disfrutar
 
-                                </p>
-                            </div>
-                            <div className="column is-full">
-                                <div className="buttons is-fixed-bottom">
-                                    <button className="button is-fullwidth">Portate Aquí</button>
-                                </div>
+                            </p>
+                        </div>
+                        <div className="column is-full is-centered">
+                            <div className="buttons is-centered">
+                                <button className="button is-fullwidth is-primary" onClick={()=>setShowLogin(!showLogin)}>Portate Aquí</button>
                             </div>
                         </div>
                     </div>
