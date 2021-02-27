@@ -38,8 +38,8 @@ const PortabilityLanding = () => {
                         </div>
                     </div>
                 </div>
+                <LoginModal show={showLogin}/>
             </section>
-            <LoginModal show={showLogin}/>
         </>
     )
 }

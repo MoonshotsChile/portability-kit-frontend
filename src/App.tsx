@@ -5,7 +5,7 @@ import Footer from './containers/footer/Footer';
 import Navbar from './containers/navbar/Navbar';
 import Landing from './containers/landing/Landing';
 import CookiesPolicies from "./components/cookies-policies/CookiesPolicies";
-import { ContextApiProvider }from "./context-api/ContextApi";
+import { ContextApiProvider } from "./context-api/ContextApi";
 
 function App() {
     return (

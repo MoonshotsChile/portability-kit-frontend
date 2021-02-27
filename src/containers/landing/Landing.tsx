@@ -3,19 +3,28 @@ import './Landing.scss';
 import PortabilityRecipients from "../portability-recipients/PortabilityRecipients";
 import PortabilityLanding from "../../components/portability-landing/PortabilityLanding";
 import { ContextApi } from "../../context-api/ContextApi";
-import { useEffect } from "react";
+import Accordion from "../../components/accordion/Accordion";
+import PortabilityUserdata from "../portability-userdata/PortabilityUserdata";
+import PortabilityProducts from "../portability-products/PortabilityProducts";
 
 const Landing = () => {
-    const { recipients } = React.useContext(ContextApi);
-
-    useEffect(() => {
-
-    });
+    const { profile, recipients, products, transactions } = React.useContext(ContextApi);
 
     return (
         <>
             <PortabilityLanding></PortabilityLanding>
-            <PortabilityRecipients recipients={recipients}></PortabilityRecipients>
+            <Accordion title={'Mis Datos'} legend={profile ? 'Sin datos' : 'Revisa tus datos aquí'}>
+                <PortabilityUserdata profile={profile}/>
+            </Accordion>
+            <Accordion title={'Mis Contactos'} legend={`${recipients?.length} Contactos`}>
+                <PortabilityRecipients recipients={recipients}/>
+            </Accordion>
+            <Accordion title={'Mis Productos'} legend={`${products?.length} Productos`}>
+                <PortabilityProducts products={products}/>
+            </Accordion>
+            <Accordion title={'Mis Transferencias'} legend={`${transactions?.length} Transferencias`}>
+                <PortabilityProducts transactions={transactions}/>
+            </Accordion>
         </>
     );
 }

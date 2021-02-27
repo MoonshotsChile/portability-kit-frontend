@@ -7,7 +7,7 @@ export type ContextProps = {
     products?: [],
     profile?: {},
     recipients?: Recipient[],
-    transactions?: {},
+    transactions?: [],
     saveContext: Function
 };
 
@@ -16,7 +16,7 @@ const initialState: ContextProps = {
     products: [],
     profile: {},
     recipients: [],
-    transactions: {},
+    transactions: [],
     saveContext: () => {}
 }
 

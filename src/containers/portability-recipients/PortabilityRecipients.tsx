@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Recipient } from "../../models/Recipient";
+import './PortabilityRecipients.scss';
 
 interface Props {
     recipients?: Recipient[]
@@ -7,7 +8,7 @@ interface Props {
 
 const PortabilityRecipients = (props: Props) => {
     return (
-        <table className="table">
+        <table className="table is-fullwidth">
             <thead>
                 <tr>
                     <th><abbr title="Nombre">Nombre</abbr></th>

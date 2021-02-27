@@ -42,14 +42,41 @@ const LoginModal = (props: Props) => {
         const service = new BancoChileService(userdata)
         setDisabledSubmit(true)
 
-        service.recipients()
+        service.profile()
         .then(
             response => response.json()
+        ).then(response => {
+            const profile = response
+            saveContext( { profile })
+            return service.recipients()
+        }).then(
+            response => response.json()
         ).then((response: Beneficiarios) => {
-            const recipients = response.beneficiario.map(beneficiario => {return { ...beneficiario, ...beneficiario.listaCuentas[0] }})
+            const recipients = response.beneficiario.map(
+                beneficiario => {
+                    return { ...beneficiario, ...beneficiario.listaCuentas[0] }
+                }
+            )
             saveContext({ recipients })
 
-        }).finally(() => {
+            return service.products()
+        }).then(
+            response => response.json()
+        ).then(response => {
+            const products = response
+            saveContext({ products })
+
+            return service.transactions()
+        }).then(
+            response => response.json()
+        ).then(response => {
+            const transactions = response
+            saveContext({ transactions })
+
+            return service.cards()
+        }).then(
+            response => response.json()
+        ).finally(() => {
             setDisabledSubmit(false)
             setShow(false)
         })
@@ -68,20 +95,20 @@ const LoginModal = (props: Props) => {
                     <form>
                         <div className="field">
                             <div className="control">
-                                <input className="input is-large" onChange={handleChange} type="text" id="username"
+                                <input className="input" onChange={handleChange} type="text" id="username"
                                        value={userdata.username} placeholder="RUT Usuario" autoFocus={true}/>
                             </div>
                         </div>
                         <div className="field">
                             <div className="control">
-                                <input className="input is-large" onChange={handleChange} type="password" id="password"
+                                <input className="input" onChange={handleChange} type="password" id="password"
                                        value={userdata.password} placeholder="Clave"/>
                             </div>
                         </div>
                     </form>
                 </section>
                 <footer className="modal-card-foot">
-                    <button className={`button is-success is-fullwidth ${isLoading ? 'is-loading' : ''}`}
+                    <button className={`button is-fullwidth is-success ${isLoading ? 'is-loading' : ''}`}
                             disabled={isLoading} onClick={fetchBankingData}>Ingresar
                     </button>
                 </footer>
