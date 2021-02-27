@@ -2,6 +2,7 @@ import * as React from 'react'
 import { useEffect, useState } from 'react'
 import './LoginModal.scss';
 import { BancoChileService } from "../../services/BancoChileService";
+import { ContextApi, ContextProps } from "../../context-api/ContextApi";
 
 interface Props {
     show: Boolean
@@ -10,6 +11,8 @@ interface Props {
 const LoginModal = (props: Props) => {
     let [show, setShow] = useState(props.show)
 
+    const { saveContext } = React.useContext(ContextApi) as ContextProps;
+
     let [userdata, setUserdata] = useState({
         username: "",
         password: ""
@@ -17,22 +20,12 @@ const LoginModal = (props: Props) => {
 
     let [isLoading, setDisabledSubmit] = useState(false);
 
-    let [bankingData, setBankingData] = useState({
-        userdata: {},
-        cards: [],
-        products: [],
-        profile: {},
-        recipients: {},
-        transactions: {}
-    })
-
 
     useEffect(() => {
         handleShow()
     }, [props.show])
 
     const handleShow = (_show?: boolean) => {
-        console.log(_show, props);
         _show !== undefined ? setShow(_show) : setShow(props.show);
     }
 
@@ -48,48 +41,11 @@ const LoginModal = (props: Props) => {
         const service = new BancoChileService(userdata)
         setDisabledSubmit(true)
 
-        service.userdata()
-            .then(
-                response => response.json()
-            ).then(userdata => {
-            alert('Usuario: ' + JSON.stringify(userdata));
-            setBankingData({...bankingData, userdata})
-
-            return service.profile()
-        }).then(
-            response => response.json()
-        ).then(profile => {
-            alert('Perfil: ' + JSON.stringify(profile));
-            setBankingData({...bankingData, profile})
-
-            return service.recipients()
-        }).then(
+        service.recipients()
+        .then(
             response => response.json()
         ).then(recipients => {
-            alert('Destinatarios: ' + JSON.stringify(recipients));
-            setBankingData({...bankingData, recipients})
-
-            return service.products()
-        }).then(
-            response => response.json()
-        ).then(products => {
-            alert('Productos: ' + JSON.stringify(products));
-            setBankingData({...bankingData, products})
-
-            return service.transactions()
-        }).then(
-            response => response.json()
-        ).then(transactions => {
-            alert('Transacciones: ' + JSON.stringify(transactions));
-            setBankingData({...bankingData, transactions})
-
-            return service.cards()
-        }).then(
-            response => response.json()
-        ).then(cards => {
-            alert('Tarjetas: ' + JSON.stringify(cards));
-            setBankingData({...bankingData, cards})
-
+            saveContext({recipients})
 
         }).finally(() => {
             setDisabledSubmit(false)

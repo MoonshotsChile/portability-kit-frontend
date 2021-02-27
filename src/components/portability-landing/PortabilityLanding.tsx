@@ -24,8 +24,8 @@ const PortabilityLanding = () => {
 
                             </p>
                         </div>
-                        <div className="column is-full is-centered">
-                            <div className="buttons is-centered">
+                        <div className="column is-centered is-full">
+                            <div className="buttons">
                                 <button className="button is-fullwidth is-primary" onClick={()=>handleShowLogin()}>Portate Aquí</button>
                             </div>
                         </div>
