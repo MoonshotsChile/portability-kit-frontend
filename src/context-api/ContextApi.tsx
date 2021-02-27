@@ -11,38 +11,34 @@ export type ContextProps = {
     saveContext: Function
 };
 
-export const ContextApi = React.createContext<ContextProps> ({
+const initialState: ContextProps = {
     userdata: {},
     products: [],
     profile: {},
     recipients: [],
     transactions: {},
     saveContext: () => {}
-});
+}
+
+
+const ContextApi = React.createContext<ContextProps> (initialState);
 
 
 const ContextApiProvider: React.FC<React.ReactNode> = ({ children }) => {
-    const [context, setContext] = React.useState<ContextProps>({
-        userdata: {},
-        products: [],
-        profile: {},
-        recipients: [],
-        transactions: {},
-        saveContext: () => {}
-    });
+    const [context, setContext] = React.useState<ContextProps>(initialState);
 
-    const saveContext = (props: ContextProps) => {
-        const newContext: ContextProps = props;
+    const saveContext = (contextProps: ContextProps) => {
+        const newContext: ContextProps = contextProps;
         setContext({...context, ...newContext});
     };
 
     return (
         <ContextApi.Provider value={{
-            userdata: {},
-            products: [],
-            profile: {},
-            recipients: [],
-            transactions: {},
+            userdata: context.userdata,
+            products: context.products,
+            profile: context.profile,
+            recipients: context.recipients,
+            transactions: context.transactions,
             saveContext
         }}>
             {children}
@@ -51,4 +47,4 @@ const ContextApiProvider: React.FC<React.ReactNode> = ({ children }) => {
 }
 
 
-export default ContextApiProvider;
+export { ContextApi, ContextApiProvider };

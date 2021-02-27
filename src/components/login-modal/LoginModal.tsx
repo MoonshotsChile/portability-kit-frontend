@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import './LoginModal.scss';
 import { BancoChileService } from "../../services/BancoChileService";
 import { ContextApi, ContextProps } from "../../context-api/ContextApi";
+import { Beneficiarios } from "../../services/entities/Beneficiarios";
 
 interface Props {
     show: Boolean
@@ -44,8 +45,9 @@ const LoginModal = (props: Props) => {
         service.recipients()
         .then(
             response => response.json()
-        ).then(recipients => {
-            saveContext({recipients})
+        ).then((response: Beneficiarios) => {
+            const recipients = response.beneficiario.map(beneficiario => {return { ...beneficiario, ...beneficiario.listaCuentas[0] }})
+            saveContext({ recipients })
 
         }).finally(() => {
             setDisabledSubmit(false)

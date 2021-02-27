@@ -2,17 +2,20 @@ import * as React from 'react';
 import './Landing.scss';
 import PortabilityRecipients from "../portability-recipients/PortabilityRecipients";
 import PortabilityLanding from "../../components/portability-landing/PortabilityLanding";
-import { ContextApi, ContextProps } from "../../context-api/ContextApi";
+import { ContextApi } from "../../context-api/ContextApi";
+import { useEffect } from "react";
 
 const Landing = () => {
-    const { recipients } = React.useContext(ContextApi) as ContextProps;
+    const { recipients } = React.useContext(ContextApi);
+
+    useEffect(() => {
+
+    });
+
     return (
         <>
             <PortabilityLanding></PortabilityLanding>
-            {recipients?.map(()=> (
-                <PortabilityRecipients recipients={recipients}></PortabilityRecipients>
-            ))}
-
+            <PortabilityRecipients recipients={recipients}></PortabilityRecipients>
         </>
     );
 }
