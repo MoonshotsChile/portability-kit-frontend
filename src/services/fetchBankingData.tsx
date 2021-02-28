@@ -9,7 +9,10 @@ import { ProductosEntity } from "./entities/ProductosEntity";
 import { TransactionsEntity } from "./entities/TransactionsEntity";
 import { Transaction } from "../models/Transaction";
 import { Product } from "../models/Product";
-import { formatTranferDateTime } from "../models/formatters";
+import { formatTranferDateTime } from "./formatters";
+import { BillEntity } from "./entities/BillEntity";
+import { Bill } from "../models/Bill";
+import { format } from "rut.js";
 
 export const fetchBankingData = (userdata: Userdata, saveContext: Function) => {
     const service = new BancoChileService(userdata)
@@ -68,5 +71,18 @@ export const fetchBankingData = (userdata: Userdata, saveContext: Function) => {
             }
         })
         saveContext({ transactions })
+        return service.bills()
+    }).then(
+        response => response.json()
+    ).then((response: BillEntity[]) => {
+        const bills: Bill[] = response.map(bill => {
+            return {
+                nombre: bill.servicio.nombre,
+                nombreBiller: bill.empresa.nombreBiller,
+                rut: format(bill.empresa.rut),
+                identificador: bill.identificador
+            }
+        })
+        saveContext({ bills })
     })
 }

@@ -7,9 +7,10 @@ import Accordion from "../../components/accordion/Accordion";
 import PortabilityUserdata from "../portability-userdata/PortabilityUserdata";
 import PortabilityProducts from "../portability-products/PortabilityProducts";
 import PortabilityTransactions from "../portability-transactions/PortabilityTransactions";
+import PortabilityBills from "../portability-bills/PortabilityBills";
 
 const Landing = () => {
-    const { profile, recipients, products, transactions } = React.useContext(ContextApi);
+    const { profile, recipients, products, transactions, bills } = React.useContext(ContextApi);
     const lastTransfer = transactions && transactions.length ? ` (desde ${transactions?.[transactions.length - 1].fecha} hasta ahora)`: ""
 
     return (
@@ -26,6 +27,9 @@ const Landing = () => {
             </Accordion>
             <Accordion id="mis-transferencias" title={'Mis Transferencias'} legend={`${transactions?.length  || 0} Transferencias${lastTransfer}`}>
                 <PortabilityTransactions transactions={transactions}/>
+            </Accordion>
+            <Accordion id="mis-cuentas" title={'Mis Cuentas'} legend={`${bills?.length  || 0} Cuentas`}>
+                <PortabilityBills bills={bills}/>
             </Accordion>
         </>
     );

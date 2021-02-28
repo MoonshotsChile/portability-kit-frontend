@@ -4,6 +4,7 @@ import { Recipient } from "../models/Recipient";
 import { Profile } from "../models/Profile";
 import { Product } from "../models/Product";
 import { Transaction } from "../models/Transaction";
+import { Bill } from "../models/Bill";
 
 export type ContextProps = {
     userdata?: Userdata,
@@ -11,6 +12,7 @@ export type ContextProps = {
     profile?: Profile,
     recipients?: Recipient[],
     transactions?: Transaction[],
+    bills?: Bill[]
     showLogin: boolean
     saveContext: Function
 };
@@ -21,6 +23,7 @@ const initialState: ContextProps = {
     profile: {},
     recipients: [],
     transactions: [],
+    bills: [],
     showLogin: false,
     saveContext: () => {}
 }
@@ -43,6 +46,7 @@ const ContextApiProvider: React.FC<React.ReactNode> = ({ children }) => {
             profile: context.profile,
             recipients: context.recipients,
             transactions: context.transactions,
+            bills: context.bills,
             showLogin: context.showLogin,
             saveContext
         }}>

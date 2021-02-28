@@ -32,6 +32,10 @@ export class BancoChileService {
         return this.fetchApi('profile')
     }
 
+    bills(): Promise<Response> {
+        return this.fetchApi('bills')
+    }
+
     private fetchApi(apiPath: string) {
         return fetch(`${this.API_URL}/${apiPath}`, {
             method: 'post',
