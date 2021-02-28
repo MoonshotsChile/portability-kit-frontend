@@ -10,7 +10,7 @@ import PortabilityTransactions from "../portability-transactions/PortabilityTran
 
 const Landing = () => {
     const { profile, recipients, products, transactions } = React.useContext(ContextApi);
-    const lastTransfer = transactions && transactions[0] ? ` (desde ${transactions?.[0].fecha} hasta ahora)`: ""
+    const lastTransfer = transactions && transactions.length ? ` (desde ${transactions?.[transactions.length - 1].fecha} hasta ahora)`: ""
 
     return (
         <>
