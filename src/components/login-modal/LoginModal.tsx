@@ -12,7 +12,7 @@ interface Props {
 const LoginModal = (props: Props) => {
     let [show, setShow] = useState(props.show)
 
-    const { saveContext } = React.useContext(ContextApi) as ContextProps;
+    const { saveContext } = React.useContext(ContextApi);
 
     let [userdata, setUserdata] = useState({
         username: "",

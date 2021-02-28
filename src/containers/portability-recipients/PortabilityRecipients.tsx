@@ -29,7 +29,7 @@ const PortabilityRecipients = (props: Props) => {
                     <td>{recipient.banco}</td>
                     <td>{recipient.nombreTipoCuenta}</td>
                     <td>{recipient.numeroCuenta}</td>
-                    <td>{recipient.esFavorito}</td>
+                    <td>{recipient.esFavorito ? 'Si' : 'No'}</td>
                 </tr>)}
             </tbody>
         </table>

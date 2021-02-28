@@ -1,13 +1,14 @@
 import React from 'react';
 import { Userdata } from "../models/Userdata";
 import { Recipient } from "../models/Recipient";
+import { Profile } from "../services/entities/Profile";
 
 export type ContextProps = {
     userdata?: Userdata,
-    products?: [],
-    profile?: {},
+    products?: any[],
+    profile?: Profile,
     recipients?: Recipient[],
-    transactions?: [],
+    transactions?: any[],
     saveContext: Function
 };
 
@@ -27,9 +28,8 @@ const ContextApi = React.createContext<ContextProps> (initialState);
 const ContextApiProvider: React.FC<React.ReactNode> = ({ children }) => {
     const [context, setContext] = React.useState<ContextProps>(initialState);
 
-    const saveContext = (contextProps: ContextProps) => {
-        const newContext: ContextProps = contextProps;
-        setContext({...context, ...newContext});
+    const saveContext = (newState: ContextProps) => {
+        setContext(prevState => ({...prevState, ...newState}));
     };
 
     return (
