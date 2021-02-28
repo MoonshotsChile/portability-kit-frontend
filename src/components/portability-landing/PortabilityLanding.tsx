@@ -1,13 +1,13 @@
 import * as React from "react";
-import {useState} from "react";
 import {movingAwayIcon} from "../../assets";
 import LoginModal from "../login-modal/LoginModal";
+import { ContextApi } from "../../context-api/ContextApi";
 
 const PortabilityLanding = () => {
-    let [showLogin, setShowLogin] = useState(false)
+    const { saveContext, showLogin } = React.useContext(ContextApi);
 
-    const handleShowLogin = () => {
-        setShowLogin(!showLogin)
+    const showLoginModal = (showLogin: boolean) => {
+        saveContext({showLogin})
     }
 
     return (
@@ -26,7 +26,7 @@ const PortabilityLanding = () => {
                         </div>
                         <div className="column is-centered is-full">
                             <div className="buttons">
-                                <button className="button is-fullwidth is-primary" onClick={()=>handleShowLogin()}>Portate Aquí</button>
+                                <button className="button is-fullwidth is-primary" onClick={()=>showLoginModal(true)}>Portate Aquí</button>
                             </div>
                         </div>
                     </div>

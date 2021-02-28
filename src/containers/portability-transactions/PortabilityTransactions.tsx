@@ -19,8 +19,8 @@ const PortabilityTransactions = (props: Props) => {
             </tr>
             </thead>
             <tbody>
-            {props.transactions?.map(transaction =>
-                <tr>
+            {props.transactions?.map((transaction, i) =>
+                <tr  key={`transaction-${i}`}>
                     <td className="is-1">{transaction.fecha}</td>
                     <td className="is-1">{transaction.canal}</td>
                     <td className="is-1">{transaction.descripcion}</td>

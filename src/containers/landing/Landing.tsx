@@ -14,7 +14,7 @@ const Landing = () => {
     return (
         <>
             <PortabilityLanding></PortabilityLanding>
-            <Accordion title={'Mis Datos'} legend={profile ? 'Revisa tus datos aquí' : 'Sin Datos'}>
+            <Accordion title={'Mis Datos'} legend={profile?.nombres ? 'Revisa tus datos aquí' : 'Sin Datos'}>
                 <PortabilityUserdata profile={profile}/>
             </Accordion>
             <Accordion title={'Mis Contactos'} legend={`${recipients?.length || 0} Contactos`}>

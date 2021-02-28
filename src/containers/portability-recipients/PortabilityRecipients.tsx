@@ -20,8 +20,8 @@ const PortabilityRecipients = (props: Props) => {
                 </tr>
             </thead>
             <tbody>
-            {props.recipients?.map(recipient =>
-                <tr>
+            {props.recipients?.map((recipient, i) =>
+                <tr key={`recipient-${i}`}>
                     <th>{recipient.nombreRazonSocial}</th>
                     <td>{recipient.rutBeneficiario}</td>
                     <td>{recipient.email}</td>

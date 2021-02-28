@@ -19,8 +19,8 @@ const PortabilityProducts = (props: Props) => {
             </tr>
             </thead>
             <tbody>
-            {props.products?.map(product =>
-                <tr>
+            {props.products?.map((product, i) =>
+                <tr key={`product-${i}`}>
                     <th>{product.descripcionLogo}</th>
                     <td>{product.tipo}</td>
                     <td>{product.codigoMoneda}</td>

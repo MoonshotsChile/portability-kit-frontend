@@ -15,17 +15,11 @@ const CookiesPolicies = (props: Props) => {
                     <section>
                         <div className="notification">
                             <button className="delete" onClick={() => setShow(false)}/>
-                            <h3 className="title">Cookie Policy</h3>
-                            <p className="subtitle">We use cookies to personalise content, to provide social media
-                                features and
-                                to analyse our traffic. We also share information about your use of our site with our
-                                social
-                                media, advertising and analytics partners. If you want to change your cookie setting,
-                                please see
-                                the ‘how to reject cookies' section of our <a href="#">Cookie Policy</a>. Otherwise, if
-                                you
-                                agree to our use of cookies, please continue to use our website.</p>
-                            <button className="button is-primary" onClick={() => setShow(false)}>I accept cookies</button>
+                            <h3 className="title">Política de Cookies</h3>
+                            <p className="subtitle">Utilizamos cookies para saber cómo interactúan los usuarios con el contenido y mejorar su experiencia cuando visitan nuestros sitios web. Por ejemplo, algunas cookies sirven para recordar el idioma o las preferencias del usuario, de modo que este no tiene que seleccionarlos cada vez que visita nuestros sitios web. También utilizamos cookies para realizar un seguimiento de la ubicación geográfica, de manera que podemos mostrar al usuario las ubicaciones de las oficinas y gasolineras Shell más próximas. Por otra parte, las cookies nos permiten presentar al usuario contenido específico, como los vídeos incluidos en nuestros sitios web. Podemos utilizar lo que aprendemos sobre el comportamiento de los usuarios en los sitios web para presentarles una publicidad personalizada en sitios web de terceros, con la idea de volver a ofrecerle nuestros productos y servicios.
+
+                            </p>
+                            <button className="button is-primary" onClick={() => setShow(false)}>Aceptar</button>
                         </div>
                     </section>
                 </div>

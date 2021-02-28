@@ -2,13 +2,16 @@ import React from 'react';
 import { Userdata } from "../models/Userdata";
 import { Recipient } from "../models/Recipient";
 import { Profile } from "../models/Profile";
+import { Product } from "../models/Product";
+import { Transaction } from "../models/Transaction";
 
 export type ContextProps = {
     userdata?: Userdata,
-    products?: any[],
+    products?: Product[],
     profile?: Profile,
     recipients?: Recipient[],
-    transactions?: any[],
+    transactions?: Transaction[],
+    showLogin: boolean
     saveContext: Function
 };
 
@@ -18,6 +21,7 @@ const initialState: ContextProps = {
     profile: {},
     recipients: [],
     transactions: [],
+    showLogin: false,
     saveContext: () => {}
 }
 
@@ -39,6 +43,7 @@ const ContextApiProvider: React.FC<React.ReactNode> = ({ children }) => {
             profile: context.profile,
             recipients: context.recipients,
             transactions: context.transactions,
+            showLogin: context.showLogin,
             saveContext
         }}>
             {children}

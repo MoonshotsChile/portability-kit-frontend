@@ -9,9 +9,7 @@ interface Props {
 }
 
 const LoginModal = (props: Props) => {
-    let [show, setShow] = useState(props.show)
-
-    const { saveContext } = React.useContext(ContextApi);
+    const { saveContext, showLogin } = React.useContext(ContextApi);
 
     let [userdata, setUserdata] = useState({
         username: "",
@@ -21,12 +19,8 @@ const LoginModal = (props: Props) => {
     let [isLoading, setDisabledSubmit] = useState(false);
 
 
-    useEffect(() => {
-        handleShow()
-    }, [props.show])
-
-    const handleShow = (_show?: boolean) => {
-        _show !== undefined ? setShow(_show) : setShow(props.show);
+    const handleShow = (showLogin: boolean) => {
+       saveContext({showLogin})
     }
 
     const handleChange = (e: { target: { id: string; value: string; } }) => {
@@ -41,13 +35,13 @@ const LoginModal = (props: Props) => {
         setDisabledSubmit(true)
         fetchBankingData(userdata, saveContext).finally(() => {
             setDisabledSubmit(false)
-            setShow(false)
+            saveContext({showLogin: false})
         })
     }
 
 
     return (
-        <div className={`modal ${show ? " is-active" : ""}`}>
+        <div className={`modal ${showLogin ? " is-active" : ""}`}>
             <div className="modal-background"/>
             <div className="modal-card">
                 <header className="modal-card-head">

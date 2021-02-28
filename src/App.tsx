@@ -14,7 +14,7 @@ function App() {
                 <Navbar></Navbar>
                 <Landing></Landing>
                 <Footer></Footer>
-                <CookiesPolicies show={false}></CookiesPolicies>
+                <CookiesPolicies show={true}></CookiesPolicies>
             </div>
         </ContextApiProvider>
     );
