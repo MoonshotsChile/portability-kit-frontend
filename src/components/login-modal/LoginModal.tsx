@@ -3,7 +3,7 @@ import { useState } from 'react'
 import './LoginModal.scss';
 import { ContextApi } from "../../context-api/ContextApi";
 import { fetchBankingData } from "../../services/fetchBankingData";
-import { format } from "rut.js";
+import { format, validate } from "rut.js";
 
 interface Props {
     show: Boolean
@@ -47,6 +47,10 @@ const LoginModal = (props: Props) => {
         })
     }
 
+    const isValidForm = () => {
+        return validate(userdata.username) && userdata.password.length > 7
+    }
+
 
     return (
         <div className={`modal ${showLogin ? " is-active" : ""}`}>
@@ -74,7 +78,7 @@ const LoginModal = (props: Props) => {
                 </section>
                 <footer className="modal-card-foot">
                     <button className={`button is-fullwidth is-success ${isLoading ? 'is-loading' : ''}`}
-                            disabled={isLoading} onClick={fetchData}>Conectar a Banco de Chile
+                            disabled={isLoading || !isValidForm()} onClick={fetchData}>Conectar a Banco de Chile
                     </button>
                 </footer>
             </div>
