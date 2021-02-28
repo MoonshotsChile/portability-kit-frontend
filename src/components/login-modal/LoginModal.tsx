@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './LoginModal.scss';
 import { ContextApi } from "../../context-api/ContextApi";
 import { fetchBankingData } from "../../services/fetchBankingData";
