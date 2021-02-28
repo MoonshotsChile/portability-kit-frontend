@@ -1,4 +1,4 @@
-export interface Beneficiarios {
+export interface BeneficiariosEntity {
   beneficiario: Beneficiario[],
   pagina: any
 }

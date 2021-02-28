@@ -18,7 +18,7 @@ const PortabilityStepper = () => {
                                 </div>
                             </div>
                             <h4 className="title">Projects</h4>
-                            <progress className="progress is-info" role="progressbar" value="75" max="100"></progress>
+                            <progress className="progress is-info" role="progressbar" value="75" max="100"/>
                         </div>
                     </div>
                     <div className="column is-6-tablet is-3-desktop">

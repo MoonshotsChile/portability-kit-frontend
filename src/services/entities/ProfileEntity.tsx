@@ -1,4 +1,4 @@
-export interface Profile {
+export interface ProfileEntity {
     datosCliente?: DatosCliente,
     datosContacto?: DatosContacto,
     datosEjecutivo?: DatosEjecutivo
@@ -6,6 +6,7 @@ export interface Profile {
 
 interface DatosCliente {
     nombres: string,
+    rut: string,
     apellidoPaterno: string,
     apellidoMaterno: string,
     fechaNacimiento: number,
@@ -18,6 +19,7 @@ interface DatosContacto {
     ciudad: string,
     comuna: string,
     direccion: string,
+    numeroDireccion: string,
     emailComercial: string,
     emailParticular: string,
     telefonoComercial: string,

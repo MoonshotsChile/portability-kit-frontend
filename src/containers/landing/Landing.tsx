@@ -6,6 +6,7 @@ import { ContextApi } from "../../context-api/ContextApi";
 import Accordion from "../../components/accordion/Accordion";
 import PortabilityUserdata from "../portability-userdata/PortabilityUserdata";
 import PortabilityProducts from "../portability-products/PortabilityProducts";
+import PortabilityTransactions from "../portability-transactions/PortabilityTransactions";
 
 const Landing = () => {
     const { profile, recipients, products, transactions } = React.useContext(ContextApi);
@@ -13,17 +14,17 @@ const Landing = () => {
     return (
         <>
             <PortabilityLanding></PortabilityLanding>
-            <Accordion title={'Mis Datos'} legend={profile ? 'Sin datos' : 'Revisa tus datos aquí'}>
+            <Accordion title={'Mis Datos'} legend={profile ? 'Revisa tus datos aquí' : 'Sin Datos'}>
                 <PortabilityUserdata profile={profile}/>
             </Accordion>
-            <Accordion title={'Mis Contactos'} legend={`${recipients?.length} Contactos`}>
+            <Accordion title={'Mis Contactos'} legend={`${recipients?.length || 0} Contactos`}>
                 <PortabilityRecipients recipients={recipients}/>
             </Accordion>
-            <Accordion title={'Mis Productos'} legend={`${products?.length} Productos`}>
+            <Accordion title={'Mis Productos'} legend={`${products?.length || 0} Productos`}>
                 <PortabilityProducts products={products}/>
             </Accordion>
-            <Accordion title={'Mis Transferencias'} legend={`${transactions?.length} Transferencias`}>
-                <PortabilityProducts transactions={transactions}/>
+            <Accordion title={'Mis Transferencias'} legend={`${transactions?.length  || 0} Transferencias`}>
+                <PortabilityTransactions transactions={transactions}/>
             </Accordion>
         </>
     );

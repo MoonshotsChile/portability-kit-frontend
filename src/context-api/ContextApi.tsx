@@ -1,7 +1,7 @@
 import React from 'react';
 import { Userdata } from "../models/Userdata";
 import { Recipient } from "../models/Recipient";
-import { Profile } from "../services/entities/Profile";
+import { Profile } from "../models/Profile";
 
 export type ContextProps = {
     userdata?: Userdata,

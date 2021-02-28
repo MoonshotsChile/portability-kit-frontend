@@ -1,9 +1,8 @@
 import * as React from 'react'
 import { useEffect, useState } from 'react'
 import './LoginModal.scss';
-import { BancoChileService } from "../../services/BancoChileService";
-import { ContextApi, ContextProps } from "../../context-api/ContextApi";
-import { Beneficiarios } from "../../services/entities/Beneficiarios";
+import { ContextApi } from "../../context-api/ContextApi";
+import { fetchBankingData } from "../../services/fetchBankingData";
 
 interface Props {
     show: Boolean
@@ -38,45 +37,9 @@ const LoginModal = (props: Props) => {
         }))
     }
 
-    const fetchBankingData = () => {
-        const service = new BancoChileService(userdata)
+    const fetchData = () => {
         setDisabledSubmit(true)
-
-        service.profile()
-        .then(
-            response => response.json()
-        ).then(response => {
-            const profile = response
-            saveContext( { profile })
-            return service.recipients()
-        }).then(
-            response => response.json()
-        ).then((response: Beneficiarios) => {
-            const recipients = response.beneficiario.map(
-                beneficiario => {
-                    return { ...beneficiario, ...beneficiario.listaCuentas[0] }
-                }
-            )
-            saveContext({ recipients })
-
-            return service.products()
-        }).then(
-            response => response.json()
-        ).then(response => {
-            const products = response
-            saveContext({ products })
-
-            return service.transactions()
-        }).then(
-            response => response.json()
-        ).then(response => {
-            const transactions = response
-            saveContext({ transactions })
-
-            return service.cards()
-        }).then(
-            response => response.json()
-        ).finally(() => {
+        fetchBankingData(userdata, saveContext).finally(() => {
             setDisabledSubmit(false)
             setShow(false)
         })
@@ -109,7 +72,7 @@ const LoginModal = (props: Props) => {
                 </section>
                 <footer className="modal-card-foot">
                     <button className={`button is-fullwidth is-success ${isLoading ? 'is-loading' : ''}`}
-                            disabled={isLoading} onClick={fetchBankingData}>Ingresar
+                            disabled={isLoading} onClick={fetchData}>Ingresar
                     </button>
                 </footer>
             </div>
