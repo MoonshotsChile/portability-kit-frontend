@@ -24,7 +24,7 @@ class Accordion extends React.Component {
         const {expanded} = this.state;
 
         return(
-            <div className="column is-full">
+            <div className="accordion column is-full">
                 <div
                     className={ "card " + (expanded ? "expanded" : "not-expanded") }
                 >
