@@ -19,7 +19,11 @@ export const fetchBankingData = (userdata: Userdata, saveContext: Function) => {
 
     return service.profile()
         .then(
-            response => response.json()
+            response => {
+                if (response.status === 401) {
+                    throw(Error("login incorrecto"))
+                } else return response.json()
+            }
         ).then((response: ProfileEntity) => {
         const profile: Profile = {
             nombres: response.datosCliente?.nombres,
