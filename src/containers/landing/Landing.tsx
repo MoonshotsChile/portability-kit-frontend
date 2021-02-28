@@ -10,6 +10,7 @@ import PortabilityTransactions from "../portability-transactions/PortabilityTran
 
 const Landing = () => {
     const { profile, recipients, products, transactions } = React.useContext(ContextApi);
+    const lastTransfer = transactions && transactions[0] ? ` (desde ${transactions?.[0].fecha} hasta ahora)`: ""
 
     return (
         <>
@@ -23,7 +24,7 @@ const Landing = () => {
             <Accordion title={'Mis Productos'} legend={`${products?.length || 0} Productos`}>
                 <PortabilityProducts products={products}/>
             </Accordion>
-            <Accordion title={'Mis Transferencias'} legend={`${transactions?.length  || 0} Transferencias`}>
+            <Accordion title={'Mis Transferencias'} legend={`${transactions?.length  || 0} Transferencias${lastTransfer}`}>
                 <PortabilityTransactions transactions={transactions}/>
             </Accordion>
         </>

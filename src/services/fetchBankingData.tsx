@@ -9,6 +9,7 @@ import { ProductosEntity } from "./entities/ProductosEntity";
 import { TransactionsEntity } from "./entities/TransactionsEntity";
 import { Transaction } from "../models/Transaction";
 import { Product } from "../models/Product";
+import { formatTranferDateTime } from "../models/formatters";
 
 export const fetchBankingData = (userdata: Userdata, saveContext: Function) => {
     const service = new BancoChileService(userdata)
@@ -61,7 +62,7 @@ export const fetchBankingData = (userdata: Userdata, saveContext: Function) => {
                 canal: movimiento.canal,
                 descripcion: movimiento.descripcion,
                 detalleGlosa: movimiento.detalleGlosa.join(", "),
-                fecha: movimiento.fecha,
+                fecha: formatTranferDateTime(movimiento.fecha),
                 tipo: movimiento.tipo,
                 montoMovimiento: movimiento.montoMovimiento.toString()
             }
