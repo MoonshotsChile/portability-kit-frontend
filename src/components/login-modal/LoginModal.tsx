@@ -38,7 +38,10 @@ const LoginModal = (props: Props) => {
     }
     const fetchData = () => {
         setDisabledSubmit(true)
-        fetchBankingData(userdata, saveContext).finally(() => {
+        fetchBankingData(userdata, saveContext)
+            .then(() => window.location.href = '#mis-contactos')
+            .catch(e => alert((e.message)))
+            .finally(() => {
             setDisabledSubmit(false)
             saveContext({showLogin: false})
         })

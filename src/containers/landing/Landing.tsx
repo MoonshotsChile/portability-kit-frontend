@@ -15,16 +15,16 @@ const Landing = () => {
     return (
         <>
             <PortabilityLanding></PortabilityLanding>
-            <Accordion title={'Mis Datos'} legend={profile?.nombres ? 'Revisa tus datos aquí' : 'Sin Datos'}>
+            <Accordion id="mis-datos" title={'Mis Datos'} legend={profile?.nombres ? 'Revisa tus datos aquí' : 'Sin Datos'}>
                 <PortabilityUserdata profile={profile}/>
             </Accordion>
-            <Accordion title={'Mis Contactos'} legend={`${recipients?.length || 0} Contactos`}>
+            <Accordion id="mis-contactos"  title={'Mis Contactos'} legend={`${recipients?.length || 0} Contactos`}>
                 <PortabilityRecipients recipients={recipients}/>
             </Accordion>
-            <Accordion title={'Mis Productos'} legend={`${products?.length || 0} Productos`}>
+            <Accordion id="mis-productos" title={'Mis Productos'} legend={`${products?.length || 0} Productos`}>
                 <PortabilityProducts products={products}/>
             </Accordion>
-            <Accordion title={'Mis Transferencias'} legend={`${transactions?.length  || 0} Transferencias${lastTransfer}`}>
+            <Accordion id="mis-transferencias" title={'Mis Transferencias'} legend={`${transactions?.length  || 0} Transferencias${lastTransfer}`}>
                 <PortabilityTransactions transactions={transactions}/>
             </Accordion>
         </>

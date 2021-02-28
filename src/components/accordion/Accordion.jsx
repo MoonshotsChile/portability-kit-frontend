@@ -25,7 +25,7 @@ class Accordion extends React.Component {
 
         return(
             <div className="accordion column is-full">
-                <div
+                <div {...this.props}
                     className={ "card " + (expanded ? "expanded" : "not-expanded") }
                 >
                     <header className="card-header" onClick={this.toggleCardState}>
