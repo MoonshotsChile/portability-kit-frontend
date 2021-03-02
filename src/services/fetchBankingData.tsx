@@ -30,7 +30,7 @@ export const fetchBankingData = (userdata: Userdata, saveContext: Function) => {
             apellidoPaterno: response.datosCliente?.apellidoPaterno,
             apellidoMaterno: response.datosCliente?.apellidoMaterno,
             rut: response.datosCliente?.rut,
-            fechaNacimiento: response.datosCliente?.fechaNacimiento ? new Date(response.datosCliente?.fechaNacimiento + 3600 * 3).toLocaleDateString('es-CL') : '',
+            fechaNacimiento: response.datosCliente?.fechaNacimiento ? new Date(response.datosCliente?.fechaNacimiento + 3600 * 4 * 1000).toLocaleDateString('es-CL') : '',
             region: response.datosContacto?.region,
             ciudad: response.datosContacto?.ciudad,
             comuna: response.datosContacto?.comuna,
