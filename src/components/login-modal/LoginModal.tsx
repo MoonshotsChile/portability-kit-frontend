@@ -56,7 +56,7 @@ const LoginModal = (props: Props) => {
 
 
     return (
-        <div className={`modal ${showLogin ? " is-active" : ""}`}>
+        <div className={`modal login-modal ${showLogin ? " is-active" : ""}`}>
             <div className="modal-background"/>
             <div className="modal-card">
                 <header className="modal-card-head">
@@ -79,11 +79,14 @@ const LoginModal = (props: Props) => {
                         </div>
                     </form>
                 </section>
-                <footer className="modal-card-foot">
+                <section className="modal-card-body">
                     <button className={`button is-fullwidth is-success ${isLoading ? 'is-loading' : ''}`}
                             disabled={isLoading || !isValidForm()} onClick={fetchData}>Conectar a Banco de Chile
                     </button>
-                </footer>
+                </section>
+                <section className="modal-card-foot">
+                    <p className="are-small"><strong>No</strong> guardamos tus credenciales.<br/>Sólo traeremos tus datos bancarios por tí.</p>
+                </section>
             </div>
         </div>
     )

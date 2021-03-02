@@ -21,13 +21,13 @@ class Accordion extends React.Component {
     }
 
     render() {
-        const {title, legend, children} = this.props;
-        const {expanded} = this.state;
+        const {title, legend, children, expanded} = this.props;
+        const expandedState = this.state.expanded || expanded;
 
         return(
             <div className="accordion column is-full">
                 <div {...this.props}
-                    className={ "card " + (expanded || !!this.props.expanded ? "expanded" : "not-expanded") }
+                    className={ "card " + (expandedState ? "expanded" : "not-expanded") }
                 >
                     <header className="card-header" onClick={this.toggleCardState}>
                         <p className="card-header-title">
