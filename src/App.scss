@@ -14,7 +14,6 @@
 // Set your brand colors
 $purple: #4759DD;
 $pink: #fa7c91;
-$brown: #757763;
 $beige-light: #d0d1cd;
 $beige-lighter: #eff0eb;
 
@@ -24,7 +23,7 @@ $family-primary: 'Montserrat', sans-serif;
 $family-code: 'Hind', sans-serif;
 $family-secondary: 'Hind', sans-serif;
 $family-monospace: 'Hind', sans-serif;
-$grey-dark: $brown;
+$grey-dark: #696969;
 $grey-light: $beige-light;
 $primary: $purple;
 $button-color: $purple;
@@ -43,14 +42,33 @@ body {
   color: $purple;
   h1, h2, h3, h4, h5, h6 {
     font-family: $family-primary;
+    font-weight: bold;
+  }
+
+  h1, h2, h3 {
+    color: $black;
+  }
+
+  h4, h5, h6 {
     color: $purple;
   }
+
   .sbank {
     font-family: 'Sen', sans-serif;
     font-size: 2em;
   }
   p {
     color: $black;
+  }
+
+  .accordions {
+    .card-header-title {
+      font-weight: bold;
+      color: $purple;
+    }
+    .card-header-icon {
+      color: $grey-dark;
+    }
   }
 }
 

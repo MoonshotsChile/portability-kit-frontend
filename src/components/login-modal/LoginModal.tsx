@@ -51,7 +51,7 @@ const LoginModal = (props: Props) => {
     }
 
     const isValidForm = () => {
-        return validate(userdata.username) && userdata.password.length > 7
+        return validate(userdata.username) && userdata.password.length > 3
     }
 
 
