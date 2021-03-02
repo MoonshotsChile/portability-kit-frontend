@@ -41,6 +41,7 @@ export const fetchBankingData = (userdata: Userdata, saveContext: Function) => {
             telefonoFijo: response.datosContacto?.telefonoFijo,
             telefonoMovil: response.datosContacto?.telefonoMovil,
         }
+        saveContext( { accordions: {personalData: true} })
         saveContext( { profile })
         return service.recipients()
     }).then(

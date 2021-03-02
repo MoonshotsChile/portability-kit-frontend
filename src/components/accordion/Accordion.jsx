@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React from 'react';
+import PropTypes from 'prop-types'
 import './Accordion.scss';
 
 class Accordion extends React.Component {
@@ -26,7 +27,7 @@ class Accordion extends React.Component {
         return(
             <div className="accordion column is-full">
                 <div {...this.props}
-                    className={ "card " + (expanded ? "expanded" : "not-expanded") }
+                    className={ "card " + (expanded || !!this.props.expanded ? "expanded" : "not-expanded") }
                 >
                     <header className="card-header" onClick={this.toggleCardState}>
                         <p className="card-header-title">
@@ -45,6 +46,12 @@ class Accordion extends React.Component {
             </div>
         );
     }
+}
+
+Accordion.propTypes = {
+    title: PropTypes.string.isRequired,
+    legend: PropTypes.string,
+    expanded: PropTypes.bool
 }
 
 export default Accordion;

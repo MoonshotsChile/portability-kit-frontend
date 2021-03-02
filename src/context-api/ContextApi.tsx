@@ -14,6 +14,13 @@ export type ContextProps = {
     transactions?: Transaction[],
     bills?: Bill[]
     showLogin: boolean
+    accordions: {
+        personalData?: boolean,
+        contacts?: boolean,
+        products?: boolean,
+        transactions?: boolean,
+        bills?: boolean
+    },
     saveContext: Function
 };
 
@@ -25,6 +32,13 @@ const initialState: ContextProps = {
     transactions: [],
     bills: [],
     showLogin: false,
+    accordions: {
+        personalData: false,
+        contacts: false,
+        products: false,
+        transactions: false,
+        bills: false
+    },
     saveContext: () => {}
 }
 
@@ -47,6 +61,7 @@ const ContextApiProvider: React.FC<React.ReactNode> = ({ children }) => {
             recipients: context.recipients,
             transactions: context.transactions,
             bills: context.bills,
+            accordions: context.accordions,
             showLogin: context.showLogin,
             saveContext
         }}>
