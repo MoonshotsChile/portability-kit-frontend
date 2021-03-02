@@ -10,10 +10,7 @@ const Navbar = () => {
                 <div className="container">
                     <div className="navbar-brand">
                         <a className="navbar-item" href="#">
-                            <img src={sBankIcon} alt=""/>
-                        </a>
-                        <a className="navbar-item" href="#">
-                            <h1 className="sbank">Sbank</h1>
+                            <img src={sBankIcon} alt="SBank"/>
                         </a>
                         <a className="navbar-burger" role="button" aria-label="menu" aria-expanded="false">
                             <span aria-hidden="true"/>
