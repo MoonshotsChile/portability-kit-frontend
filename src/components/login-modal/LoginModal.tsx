@@ -85,7 +85,7 @@ const LoginModal = (props: Props) => {
                     </button>
                 </section>
                 <section className="modal-card-foot">
-                    <p className="are-small"><strong>No</strong> guardamos tus credenciales.<br/>Sólo traeremos tus datos bancarios por tí.</p>
+                    <p className="are-small"><strong>No</strong> guardamos tus credenciales.<br/> Sólo nos conectaremos a tu banco para traer tus datos por tí.</p>
                 </section>
             </div>
         </div>
