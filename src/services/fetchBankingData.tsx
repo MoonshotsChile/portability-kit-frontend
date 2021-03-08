@@ -1,4 +1,3 @@
-import React from 'react';
 import { BeneficiariosEntity } from "./entities/BeneficiariosEntity";
 import { BancoChileService } from "./BancoChileService";
 import { Userdata } from "../models/Userdata";
