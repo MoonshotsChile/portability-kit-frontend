@@ -51,7 +51,8 @@ class Accordion extends React.Component {
 Accordion.propTypes = {
     title: PropTypes.string.isRequired,
     legend: PropTypes.string,
-    expanded: PropTypes.bool
+    expanded: PropTypes.bool,
+    children: PropTypes.node.isRequired
 }
 
 export default Accordion;

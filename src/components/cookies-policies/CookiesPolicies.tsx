@@ -6,7 +6,7 @@ interface Props {
 }
 
 const CookiesPolicies = (props: Props) => {
-    let [show, setShow] = useState(props.show)
+    const [show, setShow] = useState(props.show)
     return (
         <>
             <div className={`modal ${show ? " is-active" : ""}`}>

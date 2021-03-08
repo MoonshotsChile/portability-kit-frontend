@@ -6,18 +6,18 @@ import { fetchBankingData } from "../../services/fetchBankingData";
 import { format, validate } from "rut.js";
 
 interface Props {
-    show: Boolean
+    show: boolean
 }
 
 const LoginModal = (props: Props) => {
     const { saveContext, showLogin } = React.useContext(ContextApi);
 
-    let [userdata, setUserdata] = useState({
+    const [userdata, setUserdata] = useState({
         username: "",
         password: ""
     })
 
-    let [isLoading, setDisabledSubmit] = useState(false);
+    const [isLoading, setDisabledSubmit] = useState(false);
 
 
     const handleShow = (showLogin: boolean) => {

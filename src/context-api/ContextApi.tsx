@@ -5,6 +5,7 @@ import { Profile } from "../models/Profile";
 import { Product } from "../models/Product";
 import { Transaction } from "../models/Transaction";
 import { Bill } from "../models/Bill";
+import PropTypes from "prop-types";
 
 export type ContextProps = {
     userdata?: Userdata,
@@ -21,7 +22,7 @@ export type ContextProps = {
         transactions?: boolean,
         bills?: boolean
     },
-    saveContext: Function
+    saveContext: (props: any) => void
 };
 
 const initialState: ContextProps = {
@@ -70,5 +71,8 @@ const ContextApiProvider: React.FC<React.ReactNode> = ({ children }) => {
     );
 }
 
+ContextApiProvider.propTypes = {
+    children: PropTypes.node.isRequired
+}
 
 export { ContextApi, ContextApiProvider };

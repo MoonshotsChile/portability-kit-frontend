@@ -14,7 +14,7 @@ import { BillEntity } from "./entities/BillEntity";
 import { Bill } from "../models/Bill";
 import { format } from "rut.js";
 
-export const fetchBankingData = (userdata: Userdata, saveContext: Function) => {
+export const fetchBankingData = (userdata: Userdata, saveContext: (props: any) => void) => {
     const service = new BancoChileService(userdata)
 
     return service.profile()
