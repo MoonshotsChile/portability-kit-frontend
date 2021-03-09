@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { useState } from 'react'
 import './LoginModal.scss';
 import { ContextApi } from "../../context-api/ContextApi";
@@ -80,7 +80,7 @@ const LoginModal = (props: Props) => {
                     </form>
                 </section>
                 <section className="modal-card-body">
-                    <button className={`button is-fullwidth is-success ${isLoading ? 'is-loading' : ''}`}
+                    <button id="btn-fetch-data" className={`button is-fullwidth is-success ${isLoading ? 'is-loading' : ''}`}
                             disabled={isLoading || !isValidForm()} onClick={fetchData}>Conectar a Banco de Chile
                     </button>
                 </section>

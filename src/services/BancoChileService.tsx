@@ -1,4 +1,4 @@
-import {Userdata} from "../models/Userdata";
+import { Userdata } from "../models/Userdata";
 
 export class BancoChileService {
     API_URL = 'https://api.moonshots.cl/portability-kit/banco-chile';

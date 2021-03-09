@@ -26,7 +26,7 @@ const PortabilityLanding = () => {
                         </div>
                         <div className="column is-centered is-full">
                             <div className="buttons">
-                                <button className="button is-fullwidth is-primary" onClick={()=>showLoginModal(true)}>Portate Aquí</button>
+                                <button id="btn-show-login-modal" className="button is-fullwidth is-primary" onClick={()=>showLoginModal(true)}>Portate Aquí</button>
                             </div>
                         </div>
                     </div>
